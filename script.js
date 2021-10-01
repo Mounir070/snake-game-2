@@ -19,6 +19,12 @@ class Snake {
   }
 }
 
+class food{
+ constructor(){
+   thiis.x = random.width / 2
+ }
+
+}
 var [xpos, ypos, xspeed, yspeed] = [160, 160, 0, 0];
 
 function draw() {
