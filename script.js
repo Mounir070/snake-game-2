@@ -12,13 +12,38 @@ class Snake {
   constructor() {
     this.x = width / 2;
     this.y = height / 2;
+    this.x = 0;
+    this.y = 0;
+    this.xspeed = 1;
+    this.yspeed = 0;
+  }
+
+  dir(x, y) {
+    this.xspeed = x;
+    this.yspeed = y;
   }
 
   draw() {
+
     if (xpos >= 0 && xpos + 50 <= 500) xpos += xspeed;
     if (ypos >= 0 && ypos + 50 <= 500) ypos += yspeed;
+    fill(100, 100, 0);
+    rect(this.x, this.y, 20, 20);
   }
 }
+
+function keyPressed() {
+  if (keyCode === UP_ARROW) {
+    snake.dir(0, -1);
+  } else if (keyCode === DOWN_ARROW) {
+    snake.dir(0, 1);
+  } else if (keyCode === RIGHT_ARROW) {
+    snake.dir(1, 0);
+  } else if (keyCode === LEFT_ARROW) {
+    snake.dir(-1, 0);
+  }
+}
+
 
 class Food {
   constructor() {
@@ -38,12 +63,12 @@ var foods = [];
 
 function draw() {
   background(110);
- 
-  if(frameCount % 100 == 0){
+
+  if (frameCount % 100 == 0) {
     console.log("new!");
     foods.push(new Food());
-    if(foods.length > 6){
-      foods.splice(0,1);
+    if (foods.length > 3) {
+      foods.splice(0, 1);
     }
   }
 
@@ -52,6 +77,7 @@ function draw() {
   foods.forEach((f) => {
     f.draw();
   });
+
 
 
 }
