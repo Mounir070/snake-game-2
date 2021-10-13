@@ -6,16 +6,18 @@ function setup() {
   createCanvas(500, 400);
   snake = new Snake();
   food = new Food();
+  
 }
 
 class Snake {
   constructor() {
-    this.x = width / 2;
-    this.y = height / 2;
+    this.x = width / 1;
+    this.y = height / 1;
     this.x = 0;
     this.y = 0;
     this.xspeed = 1;
-    this.yspeed = 0;
+    this.yspeed = 1;
+    this.tail = [];
   }
 
   dir(x, y) {
@@ -23,16 +25,22 @@ class Snake {
     this.yspeed = y;
   }
 
+   update(x, y) {
+    this.x = this.x + this.xspeed;
+    this.y = this.y + this.yspeed;
+  }
+  
+  
   draw() {
 
     if (xpos >= 0 && xpos + 50 <= 500) xpos += xspeed;
     if (ypos >= 0 && ypos + 50 <= 500) ypos += yspeed;
-    fill(100, 100, 0);
+    fill("yellow");
     rect(this.x, this.y, 20, 20);
   }
 }
 
-function keyPressed() {
+function keyPressed(x, y) {
   if (keyCode === UP_ARROW) {
     snake.dir(0, -1);
   } else if (keyCode === DOWN_ARROW) {
@@ -64,10 +72,10 @@ var foods = [];
 function draw() {
   background(110);
 
-  if (frameCount % 100 == 0) {
+  if (frameCount % 200 == 0) {
     console.log("new!");
     foods.push(new Food());
-    if (foods.length > 3) {
+    if (foods.length > 1) {
       foods.splice(0, 1);
     }
   }
@@ -76,10 +84,19 @@ function draw() {
 
   foods.forEach((f) => {
     f.draw();
+   
   });
 
-
-
+  snake.draw();
+  text("SNAKE GAME", width / 2, 50);
+  
+  
+  
+  textSize(20);
+  text('SCORE: ',width-100,height-50);
+  text(this.snake.total-1, width-50, height-20);
+  
+  
 }
 
-
+ 
