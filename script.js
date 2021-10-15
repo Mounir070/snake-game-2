@@ -15,8 +15,8 @@ class Snake {
     this.y = height / 2;
     this.x = 0;
     this.y = 0;
-    this.xspeed = 1;
-    this.yspeed = 1;
+    this.xspeed = 2;
+    this.yspeed = 2;
     this.tail = [];
   }
 
@@ -30,7 +30,6 @@ class Snake {
     this.y = this.y + this.yspeed;
   }
   
-  
   draw() {
 
     if (xpos >= 0 && xpos + 50 <= 500) xpos += xspeed;
@@ -42,13 +41,13 @@ class Snake {
 
 function keyPressed(x, y) {
   if (keyCode === UP_ARROW) {
-    snake.dir(0, -1);
+    snake.dir(0, -2);
   } else if (keyCode === DOWN_ARROW) {
-    snake.dir(0, 1);
+    snake.dir(0, 2);
   } else if (keyCode === RIGHT_ARROW) {
-    snake.dir(1, 0);
+    snake.dir(2, 0);
   } else if (keyCode === LEFT_ARROW) {
-    snake.dir(-1, 0);
+    snake.dir(-2, 0);
   }
 }
 
@@ -98,5 +97,6 @@ function draw() {
   
   
 }
+
 
  
