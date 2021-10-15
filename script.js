@@ -35,7 +35,7 @@ class Snake {
     if (xpos >= 0 && xpos + 50 <= 500) xpos += xspeed;
     if (ypos >= 0 && ypos + 50 <= 500) ypos += yspeed;
     fill("yellow");
-    rect(this.x, this.y, 20, 20);
+    circle(this.x, this.y, 10, 10);
   }
 }
 
@@ -60,7 +60,7 @@ class Food {
 
   draw() {
     fill(220, 0, 0);
-    rect(this.x, this.y, 20, 20);
+    circle(this.x, this.y, 10, 10);
   }
 }
 
@@ -94,7 +94,6 @@ function draw() {
   textSize(20);
   text('SCORE: ',width-100,height-50);
   text(this.snake.total-1, width-50, height-20);
-  
   
 }
 
