@@ -69,9 +69,9 @@ var [xpos, ypos, xspeed, yspeed] = [160, 160, 0, 0];
 var foods = [];
 
 function draw() {
-  background(110);
+  background(220);
 
-  if (frameCount % 200 == 0) {
+  if (frameCount % 250 == 0) {
     console.log("new!");
     foods.push(new Food());
     if (foods.length > 1) {
