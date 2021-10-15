@@ -11,8 +11,8 @@ function setup() {
 
 class Snake {
   constructor() {
-    this.x = width / 1;
-    this.y = height / 1;
+    this.x = width / 2;
+    this.y = height / 2;
     this.x = 0;
     this.y = 0;
     this.xspeed = 1;
@@ -25,7 +25,7 @@ class Snake {
     this.yspeed = y;
   }
 
-   update(x, y) {
+   update() {
     this.x = this.x + this.xspeed;
     this.y = this.y + this.yspeed;
   }
@@ -87,7 +87,7 @@ function draw() {
    
   });
 
-  snake.draw();
+  snake.update(); snake.draw ('bewegen')
   text("SNAKE GAME", width / 2, 50);
   
   
